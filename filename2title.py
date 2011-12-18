@@ -92,7 +92,7 @@ def main(argv):
     logger.info('Must specify root directory.')
     usage()
     sys.exit(1)
-    
+
   if dryrun:
     logger.info('Dryrun. No files will be touched.')
 
