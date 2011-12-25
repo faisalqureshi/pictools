@@ -1,3 +1,9 @@
+# Faisal Z. Qureshi
+# faisal.qureshi@uoit.ca
+#
+# Absolutely no warranties, always copy your image files before
+# attempting to use this tool to muck around with your files.
+
 #!/usr/bin/python
 
 import sys
@@ -5,9 +11,6 @@ import getopt
 import os
 import shutil
 import logging
-# from PIL import Image
-# from PIL.ExifTags import TAGS
-from iptcinfo import IPTCInfo
 
 fileTypesAllowed = [".jpg", ".jpeg", ".JPEG", ".JPG"]
 dryrun = True
@@ -22,12 +25,21 @@ logger.addHandler(sh)
 
 
 def usage():
-  print "help message"
-
+  msg =  "This tool sets the title/caption info of jpg images equal to the\
+  filenames.  The tool only changes the title/caption of an image if\
+  currently the image has no title/caption.\n\n\
+  Usage: python filename2title.py --rootdir=<dir> [--commit] [--help]\n\n\
+  --commit -- The files are only touched if --commit switch is specified.\n\
+  --help   -- Prints this message.\n\
+  --rootdir=<> -- specifies the directory to look into.  Rememeber files are changed ind place." 
+  
+  print msg
  
   
 def process_files(srcdir):
   global dryrun
+
+  from iptcinfo import IPTCInfo
 
   files = os.listdir(srcdir) 
   
