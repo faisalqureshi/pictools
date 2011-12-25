@@ -83,7 +83,6 @@ def main(argv):
     sys.exit(1)
   
   for opt, arg in opts:
-    print opt, arg
     if opt in ["--help"]:
       usage()
       sys.exit(1)
