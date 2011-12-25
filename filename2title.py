@@ -78,7 +78,6 @@ def main(argv):
   
   try:
     opts, args = getopt.getopt(argv, "", ["help","rootdir=","fileext=","commit"])
-    print opts, args
   except getopt.GetoptError:
     usage()
     sys.exit(1)
