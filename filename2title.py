@@ -73,7 +73,7 @@ def main(argv):
   global fileTypesAllowed
   global dryrun
   
-  rootdir = "."
+  rootdir = ""
   dryrun = True
   
   try:
@@ -100,6 +100,11 @@ def main(argv):
       fileTypesAllowed.append(ext)
       logger.info('File type allowed %s', ext)
     
+  if rootdir=="":
+    logger.info('Must specify root directory.')
+    usage()
+    sys.exit(1)
+
   if dryrun:
     logger.info('Dryrun. No files will be touched.')
 
